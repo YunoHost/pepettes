@@ -9,8 +9,10 @@ Python 3.6 or newer required.
 import stripe
 import json
 import os
+import random
+import string
 
-from flask import Flask, render_template, jsonify, request, send_from_directory
+from flask import Flask, render_template, jsonify, request, send_from_directory, session
 from flask_simple_csrf import CSRF
 from dotenv import load_dotenv, find_dotenv
 
@@ -25,13 +27,16 @@ static_dir = str(os.path.abspath(os.path.join(
     __file__, "..", os.getenv("STATIC_DIR"))))
 app = Flask(__name__, static_folder=static_dir,
             static_url_path="", template_folder=static_dir)
-CSRF = CSRF(config=os.getenv('CSRF_CONFIG'))
+app.secret_key = os.getenv('SECRET_KEY')
+CSRF = CSRF(config={
+    'SECRET_CSRF_KEY':os.getenv('SECRET_CSRF_KEY')
+})
 app = CSRF.init_app(app)
 
 @app.before_request
 def before_request():
     if 'CSRF_TOKEN' not in session or 'USER_CSRF' not in session:
-        session['USER_CSRF'] = random_string(64)
+        session['USER_CSRF'] = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(64))
         session['CSRF_TOKEN'] = CSRF.create(session['USER_CSRF'])
 
 @app.route('/', methods=['GET'])
@@ -52,9 +57,9 @@ def create_checkout_session():
     data = json.loads(request.data)
     domain_url = os.getenv('DOMAIN')
     try:
-        if CSRF.verify(data['user_csrf'], session['CSRF_TOKEN']) is False or
-           data['frequency'] not in ['RECURING', 'ONE_TIME'] or
-           data['currency'] not in ['EUR', 'USD'] or
+        if CSRF.verify(data['user_csrf'], session['CSRF_TOKEN']) is False or \
+           data['frequency'] not in ['RECURING', 'ONE_TIME'] or \
+           data['currency'] not in ['EUR', 'USD'] or \
            int(data['quantity']) <= 0:
             return jsonify(error="Bad value"), 400
 
