@@ -41,8 +41,12 @@ def get_publishable_key():
 def create_checkout_session():
     data = json.loads(request.data)
     domain_url = os.getenv('DOMAIN')
-
     try:
+        if data['frequency'] not in ['RECURING', 'ONE_TIME'] or
+           data['currency'] not in ['EUR', 'USD'] or
+           int(data['quantity']) <= 0:
+            return jsonify(error="Bad value"), 400
+
         # Create new Checkout Session for the order
         price = f"{data['frequency']}_{data['currency']}_DONATION"
         mode = "payment" if data['frequency'] == 'ONE_TIME' else "subscription"
