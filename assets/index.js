@@ -27,6 +27,7 @@ submitBtn.addEventListener('click', function (evt) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
+      user_csrf: window.config.csrf,
       quantity: quantity,
       currency: currency,
       frequency: frequency

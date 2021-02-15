@@ -12,3 +12,4 @@ stripe==2.47.0
 toml==0.9.6
 urllib3==1.25.3
 Werkzeug==1.0.1
+flask-simple-csrf
