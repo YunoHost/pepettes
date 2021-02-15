@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Donate to YunoHost</title>
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link href="./css/bootstrap-5.0.0-beta2.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="./css/global.css" rel="stylesheet" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="./index.js" defer></script>
+  </head>
+
+  <body class="text-center">
+    <main class="form-donate">
+        <div>
+            <img src="logo.png" class="mb-4" alt="" width="74" height="74"/>
+            <h1 class="h3 mb-3 fw-normal">I want to give to YunoHost</h1>
+            <div class="input-group mb-3">
+                <input type="number" min="0" max="9999" class="form-control" id="quantity" value="10" aria-label="Amount">
+                <select class="form-control" id="currency">
+                    <option value="EUR">€
+                    <option value="USD">$ (USD)
+                </select>
+                <select class="form-control" id="frequency">
+                    <option value="RECURING"> / month
+                    <option value="ONE_TIME"> one time
+                </select>
+            </div>
+
+            <button id="submit" class="w-100 btn btn-lg btn-primary">Donate</button>
+
+            <div id="error-message"></div>
+        </div>
+    </main>
+  </body>
+</html>
