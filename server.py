@@ -13,25 +13,21 @@ import random
 import string
 
 from flask import Flask, render_template, jsonify, request, send_from_directory, session
+from flask_babel import Babel, _
 from flask_simple_csrf import CSRF
-from dotenv import load_dotenv, find_dotenv
 
-
-# Setup Stripe python client library.
-load_dotenv(find_dotenv())
-
-stripe.api_key = os.getenv('STRIPE_SECRET_KEY')
-stripe.api_version = os.getenv('STRIPE_API_VERSION')
 
 static_dir = str(os.path.abspath(os.path.join(
-    __file__, "..", os.getenv("STATIC_DIR"))))
+    __file__, "..", 'assets')))
 app = Flask(__name__, static_folder=static_dir,
             static_url_path="", template_folder=static_dir)
-app.secret_key = os.getenv('SECRET_KEY')
+app.config.from_pyfile('settings.py')
+stripe.api_key = app.config['STRIPE_SECRET_KEY']
 CSRF = CSRF(config={
-    'SECRET_CSRF_KEY':os.getenv('SECRET_CSRF_KEY')
+    'SECRET_CSRF_KEY': app.config['SECRET_CSRF_KEY']
 })
 app = CSRF.init_app(app)
+babel = Babel(app)
 
 @app.before_request
 def before_request():
@@ -39,43 +35,52 @@ def before_request():
         session['USER_CSRF'] = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(64))
         session['CSRF_TOKEN'] = CSRF.create(session['USER_CSRF'])
 
+@babel.localeselector
+def get_locale():
+    return 'fr' #request.accept_languages.best_match(app.config['LANGUAGES'])
+
 @app.route('/', methods=['GET'])
 def get_index():
-    return render_template('index.html')
+    return render_template('index.html', **app.config['CUSTOM'],
+                           csrf=session['USER_CSRF'])
 
 
-@app.route('/config', methods=['GET'])
-def get_publishable_key():
-    return jsonify({
-      'publicKey': os.getenv('STRIPE_PUBLISHABLE_KEY'),
-      'name': os.getenv('PROJECT_NAME'),
-      'csrf': session['USER_CSRF'],
-    })
+@app.route('/success', methods=['GET'])
+def get_success():
+    return render_template('success.html', **app.config['CUSTOM'])
+
+
+@app.route('/canceled', methods=['GET'])
+def get_canceled():
+    return render_template('canceled.html', **app.config['CUSTOM'])
+
 
 @app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
     data = json.loads(request.data)
-    domain_url = os.getenv('DOMAIN')
+    domain_url = app.config['DOMAIN']
     try:
+        donation = app.config['DONATION']
+        currencies = [iso for iso, symbol in app.config['CUSTOM']['currencies']]
         if CSRF.verify(data['user_csrf'], session['CSRF_TOKEN']) is False or \
-           data['frequency'] not in ['RECURING', 'ONE_TIME'] or \
-           data['currency'] not in ['EUR', 'USD'] or \
+           data['frequency'] not in ['recuring', 'one_time'] or \
+           data['currency'] not in currencies or \
            int(data['quantity']) <= 0:
             return jsonify(error="Bad value"), 400
 
         # Create new Checkout Session for the order
-        price = f"{data['frequency']}_{data['currency']}_DONATION"
-        mode = "payment" if data['frequency'] == 'ONE_TIME' else "subscription"
+        price = donation[data['frequency']][data['currency']]
+        mode = "payment" if data['frequency'] == 'one_time' else "subscription"
 
         checkout_session = stripe.checkout.Session.create(
             success_url=domain_url +
-            "/success.html?session_id={CHECKOUT_SESSION_ID}",
-            cancel_url=domain_url + "/canceled.html",
+            "/success?session_id={CHECKOUT_SESSION_ID}",
+            cancel_url=domain_url + "/canceled",
             payment_method_types= ["card"],
             mode=mode,
             line_items=[
                 {
-                    "price": os.getenv(price),
+                    "price": price,
                     "quantity": data['quantity']
                 }
             ]
@@ -87,4 +92,4 @@ def create_checkout_session():
 
 
 if __name__ == '__main__':
-    app.run(port=os.getenv('PORT'), debug=os.getenv('DEBUG'))
+    app.run(port=app.config['PORT'], debug=app.debug)

@@ -22,25 +22,37 @@ source venv/bin/activate
 pip3 install requirements.txt
 ```
 
-Create a .env file with :
+Create a settings.py file with :
 ```
-PORT=8000
-DEBUG=True
-PROJECT_NAME=YunoHost
-DOMAIN=http://localhost:8000
-STATIC_DIR=assets
-SECRET_CSRF_KEY=TO_CHANGE
+ENV = 'development'
+PORT = 8000
+DOMAIN = 'http://localhost:8000'
+SECRET_KEY = '712AZPOC87HXD5SQSb12rd'
+SECRET_CSRF_KEY = '712AZPOC87HXD5SQSb12'
+LANGUAGES = ['en', 'fr']
+BABEL_TRANSLATION_DIRECTORIES = 'locales'
+
+# Customization
+CUSTOM = {}
+CUSTOM['name'] = 'YunoHost'
+CUSTOM['contact_url'] = 'mailto:donate-6521@yunohost.org'
+CUSTOM['logo'] = 'https://yunohost.org/user/images/logo.png'
+CUSTOM['favicon'] = 'https://yunohost.org/user/themes/yunohost-docs/images/favicon.png'
+CUSTOM['currencies'] = [
+    ('EUR', '€'),
+    ('USD', '$')
+]
 
 # Stripe keys
-STRIPE_PUBLISHABLE_KEY=pk_test_gOgGjacs9YfvDJY03BRZ576O
-STRIPE_SECRET_KEY=TO_REPLACE_BY_THE_GOOD_VALUE
+CUSTOM['stripe_publishable_key'] = 'pk_test_gOgGjacs9YfvDJY03BRZ576O'
+STRIPE_SECRET_KEY = 'sk_test_'
 
 # Stripe subscription data
-ONE_TIME_EUR_DONATION=price_1IKuPVE7vOmTpJBiYMq7ztLH
-RECURING_EUR_DONATION=price_1IKumjE7vOmTpJBikyqS2NqD
-
-ONE_TIME_USD_DONATION=price_1IKuQfE7vOmTpJBi0A3nRGCJ
-RECURING_USD_DONATION=price_1IKumAE7vOmTpJBiO4CEfa3Q
+DONATION={'one_time':{}, 'recuring': {}}
+DONATION['one_time']['EUR'] = 'price_1IKuPVE7vOmTpJBiYMq7ztLH'
+DONATION['one_time']['USD'] = 'price_1IKuQfE7vOmTpJBi0A3nRGCJ'
+DONATION['recuring']['EUR'] = 'price_1IKumjE7vOmTpJBikyqS2NqD'
+DONATION['recuring']['USD'] = 'price_1IKumAE7vOmTpJBiO4CEfa3Q'
 ```
 
 ```
