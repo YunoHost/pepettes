@@ -1,6 +1,6 @@
-# Donate to YunoHost
+# Pepettes, a donation form
 
-A small form to donate to YunoHost. Support one-time or recuring payment.
+A small form to donate money to a project. Support one-time or recuring payment.
 
 **Demo**
 
