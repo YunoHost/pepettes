@@ -16,7 +16,7 @@
   <body class="text-center">
     <main class="form-donate">
         <div>
-            <img src="{{ logo }}" class="mb-4" alt="" width="74" height="74"/>
+            <img src="{{ logo }}" class="mb-4" alt="Project Logo" max-width="7em"/>
             <h1 class="h3 mb-3 fw-normal">{{ _('I want to give to %(name)s', name=name) }}</h1>
             <div class="input-group mb-3">
                 <input type="hidden" id="csrf" value="{{ csrf }}" />
@@ -34,7 +34,7 @@
             </div>
 
             <button id="submit" class="w-100 btn btn-lg btn-primary">{{ _('Donate') }}</button>
-            <p><a href="{{ contact_url }}">{{ _('If you want to stop a monthly donation contact us') }}</a></p>
+            <p><a href="{{ contact_url }}">{{ _('If you want to cancel a monthly donation, please contact us') }}</a></p>
             <div id="error-message"></div>
         </div>
     </main>
