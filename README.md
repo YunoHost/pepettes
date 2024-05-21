@@ -15,8 +15,8 @@ Read more about testing on Stripe at <https://stripe.com/docs/testing>.
 Follow the steps below to run locally.
 
 ```bash
-git clone https://github.com/yunohost/donate
-cd donate
+git clone https://github.com/YunoHost/pepettes
+cd pepettes
 python3 -m venv venv
 source venv/bin/activate
 python3 -m pip install -r requirements.txt
