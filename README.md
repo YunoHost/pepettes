@@ -8,13 +8,13 @@ The demo is running in test mode -- use `4242424242424242` as a test card number
 
 Use the `4000002500003155` test card number to trigger a 3D Secure challenge flow.
 
-Read more about testing on Stripe at https://stripe.com/docs/testing.
+Read more about testing on Stripe at <https://stripe.com/docs/testing>.
 
 ## How to run locally
 
 Follow the steps below to run locally.
 
-```
+```bash
 git clone https://github.com/yunohost/donate
 cd donate
 python3 -m venv venv
@@ -23,7 +23,8 @@ pip3 install requirements.txt
 ```
 
 Create a settings.py file with :
-```
+
+```text
 ENV = 'development'
 PORT = 8000
 DOMAIN = 'http://localhost:8000'
@@ -55,7 +56,7 @@ DONATION['recuring']['EUR'] = 'price_1IKumjE7vOmTpJBikyqS2NqD'
 DONATION['recuring']['USD'] = 'price_1IKumAE7vOmTpJBiO4CEfa3Q'
 ```
 
-```
+```bash
 export FLASK_APP=server.py
 python3 -m flask run --port=8000
 ```
