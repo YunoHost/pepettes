@@ -19,7 +19,7 @@ git clone https://github.com/yunohost/donate
 cd donate
 python3 -m venv venv
 source venv/bin/activate
-pip3 install requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 Create a settings.py file with :
