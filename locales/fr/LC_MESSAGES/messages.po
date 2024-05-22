@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-22 02:47+0200\n"
+"POT-Creation-Date: 2024-05-22 02:57+0200\n"
 "PO-Revision-Date: 2021-02-18 23:33+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -18,23 +18,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.15.0\n"
 
-#: assets/canceled.html:7 assets/index.html:8 assets/success.html:7
+#: assets/canceled.html:8 assets/index.html:8 assets/success.html:8
 #, python-format
 msgid "Donate to %(name)s"
 msgstr "Donner à %(name)s"
 
-#: assets/canceled.html:18
-msgid "Your payment was canceled"
-msgstr "Votre paiement a été annulé"
-
-#: assets/canceled.html:20 assets/success.html:20
-msgid "Go back to the donate form"
-msgstr "Retourner au formulaire de don"
-
-#: assets/index.html:22
+#: assets/canceled.html:20 assets/index.html:22 assets/success.html:20
 #, python-format
 msgid "%(name)s Logo"
 msgstr "Logo de %(name)s"
+
+#: assets/canceled.html:22
+msgid "Your payment was canceled"
+msgstr "Votre paiement a été annulé"
+
+#: assets/canceled.html:25 assets/success.html:25
+msgid "Go back to the donate form"
+msgstr "Retourner au formulaire de don"
 
 #: assets/index.html:23
 #, python-format
@@ -49,15 +49,17 @@ msgstr "/ mois"
 msgid "one time"
 msgstr "une fois"
 
-#: assets/index.html:43
+#: assets/index.html:44
 msgid "Donate"
 msgstr "Donner"
 
-#: assets/index.html:45
+#: assets/index.html:47
 msgid "If you want to cancel a monthly donation, please contact us"
-msgstr "Si vous souhaitez mettre fin à votre don mensuel, contactez-nous s'il vous plaît"
+msgstr ""
+"Si vous souhaitez mettre fin à votre don mensuel, contactez-nous s'il "
+"vous plaît"
 
-#: assets/success.html:18
+#: assets/success.html:22
 msgid "Thanks for your donation 🙂"
 msgstr "Merci pour votre don 🙂"
 
