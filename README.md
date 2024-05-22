@@ -60,3 +60,11 @@ DONATION['recuring']['USD'] = 'price_1IKumAE7vOmTpJBiO4CEfa3Q'
 export FLASK_APP=server.py
 python3 -m flask run --port=8000
 ```
+
+```bash
+# extract new strings or update existing strings
+pybabel extract -F babel.cfg -o messages.pot *.py assets/*.html
+
+# then update the locale files, please translate into french any new string
+pybabel update -i messages.pot -d locales
+```
