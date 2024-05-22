@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>{{ _('Donate to %(name)s', name=name) }}</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="icon" href="{{ favicon }}" type="image/x-icon" />
-    <link href="./css/bootstrap-5.0.0-beta2.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link href="./css/global.css" rel="stylesheet" />
-  </head>
+  <title>{{ _('Donate to %(name)s', name=name) }}</title>
 
-  <body class="text-center">
-    <main class="form-donate">
-        <div>
-            <img src="{{ logo }}" class="mb-4" alt="" width="74" height="74"/>
-            <h1 class="h3 mb-3 fw-normal">{{ _('Your payment was canceled') }}</h1>
+  <link rel="icon" href="{{ favicon }}" type="image/x-icon" />
+  <link href="./css/bootstrap-5.3.3.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="./css/global.css" rel="stylesheet" />
+  <script src="./darkmode.js" defer></script>
+</head>
 
-            <button onclick="window.location.href = '/';" class="w-100 btn btn-lg btn-primary">{{ _('Go back to the donate form') }}</button>
+<body class="text-center">
+  <main class="form-donate">
+    <div>
+      <img src="{{ logo }}" class="mb-4" alt="{{ _('%(name)s Logo', name=name) }}" max-width="7em" />
 
-        </div>
-    </main>
-  </body>
+      <h1 class="h3 mb-3 fw-normal">{{ _('Your payment was canceled') }}</h1>
+
+      <button onclick="window.location.href = '/';" class="w-100 btn btn-lg btn-primary">
+        {{ _('Go back to the donate form') }}
+      </button>
+
+    </div>
+  </main>
+</body>
+
 </html>
