@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-22 02:57+0200\n"
+"POT-Creation-Date: 2024-05-22 04:12+0200\n"
 "PO-Revision-Date: 2021-02-18 23:33+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "Donate to %(name)s"
 msgstr ""
 
-#: assets/canceled.html:20 assets/index.html:22 assets/success.html:20
+#: assets/canceled.html:20 assets/index.html:21 assets/success.html:20
 #, python-format
 msgid "%(name)s Logo"
 msgstr ""
@@ -36,24 +36,32 @@ msgstr ""
 msgid "Go back to the donate form"
 msgstr ""
 
-#: assets/index.html:23
+#: assets/index.html:22
 #, python-format
 msgid "I want to give to %(name)s"
 msgstr ""
 
-#: assets/index.html:38
+#: assets/index.html:30
+msgid "Currency"
+msgstr ""
+
+#: assets/index.html:36
+msgid "Frequency"
+msgstr ""
+
+#: assets/index.html:37
 msgid "/ month"
 msgstr ""
 
-#: assets/index.html:39
+#: assets/index.html:38
 msgid "one time"
 msgstr ""
 
-#: assets/index.html:44
+#: assets/index.html:43
 msgid "Donate"
 msgstr ""
 
-#: assets/index.html:47
+#: assets/index.html:46
 msgid "If you want to cancel a monthly donation, please contact us"
 msgstr ""
 

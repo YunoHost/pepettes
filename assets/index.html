@@ -28,15 +28,15 @@
 
         <input type="number" min="0" max="9999" class="form-control" id="quantity" value="10" aria-label="Amount">
 
-        <select class="form-control" id="currency" style="width:40px">
+        <select class="form-control" id="currency" style="width:40px" aria-label="{{ _('Currency') }}">
           {% for iso, symbol in currencies %}
-          <option value="{{ iso }}">{{ symbol }}
-            {% endfor %}
+          <option value="{{ iso }}">{{ symbol }} </option>
+          {% endfor %}
         </select>
 
-        <select class="form-control" id="frequency">
-          <option value="recuring"> {{ _('/ month') }}
-          <option value="one_time"> {{ _('one time') }}
+        <select class="form-control" id="frequency" aria-label="{{ _('Frequency') }}">
+          <option value="recuring"> {{ _('/ month') }} </option>
+          <option value="one_time"> {{ _('one time') }} </option>
         </select>
       </div>
 
