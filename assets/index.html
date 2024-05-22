@@ -26,7 +26,8 @@
         <input type="hidden" id="csrf" value="{{ csrf }}" />
         <input type="hidden" id="public_key" value="{{ stripe_publishable_key }}" />
 
-        <input type="number" min="0" max="9999" class="form-control" id="quantity" value="10" aria-label="Amount">
+        <input type="number" min="0" max="9999" class="form-control" id="quantity" value="10"
+          aria-label="{{ _('Amount') }}">
 
         <select class="form-select" id="currency" style="width:40px" aria-label="{{ _('Currency') }}">
           {% for iso, symbol in currencies %}
