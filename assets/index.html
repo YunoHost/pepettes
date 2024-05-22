@@ -8,8 +8,8 @@
   <title>{{ _('Donate to %(name)s', name=name) }}</title>
 
   <link rel="icon" href="{{ favicon }}" type="image/x-icon" />
-  <link href="./css/bootstrap-5.0.0-beta2.min.css" rel="stylesheet"
-    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link href="./css/bootstrap-5.3.3.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link href="./css/global.css" rel="stylesheet" />
   <script src="https://js.stripe.com/v3/"></script>
   <script src="./index.js" defer></script>
@@ -20,15 +20,19 @@
     <div>
       <img src="{{ logo }}" class="mb-4" alt="{{ _('%(name)s Logo', name=name) }}" max-width="7em" />
       <h1 class="h3 mb-3 fw-normal">{{ _('I want to give to %(name)s', name=name) }}</h1>
+
       <div class="input-group mb-3">
         <input type="hidden" id="csrf" value="{{ csrf }}" />
         <input type="hidden" id="public_key" value="{{ stripe_publishable_key }}" />
+
         <input type="number" min="0" max="9999" class="form-control" id="quantity" value="10" aria-label="Amount">
+
         <select class="form-control" id="currency" style="width:40px">
           {% for iso, symbol in currencies %}
           <option value="{{ iso }}">{{ symbol }}
             {% endfor %}
         </select>
+
         <select class="form-control" id="frequency">
           <option value="recuring"> {{ _('/ month') }}
           <option value="one_time"> {{ _('one time') }}
@@ -36,7 +40,9 @@
       </div>
 
       <button id="submit" class="w-100 btn btn-lg btn-primary">{{ _('Donate') }}</button>
+
       <p><a href="{{ contact_url }}">{{ _('If you want to cancel a monthly donation, please contact us') }}</a></p>
+
       <div id="error-message"></div>
     </div>
   </main>
