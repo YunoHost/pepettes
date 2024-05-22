@@ -12,8 +12,8 @@ import os
 import random
 import string
 
-from flask import Flask, render_template, jsonify, request, send_from_directory, session
-from flask_babel import Babel, _
+from flask import Flask, render_template, jsonify, request, session
+from flask_babel import Babel
 from flask_simple_csrf import CSRF
 
 
