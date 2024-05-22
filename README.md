@@ -24,7 +24,7 @@ python3 -m pip install -r requirements.txt
 
 Create a settings.py file with :
 
-```text
+```python
 ENV = 'development'
 PORT = 8000
 DOMAIN = 'http://localhost:8000'
