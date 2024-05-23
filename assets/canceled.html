@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ lang }}">
 
 <head>
   <meta charset="utf-8" />
@@ -9,7 +9,7 @@
 
   <link rel="icon" href="{{ favicon }}" type="image/x-icon" />
   <link href="./css/bootstrap-5.3.3.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link href="./css/global.css" rel="stylesheet" />
   <script src="./darkmode.js" defer></script>
 </head>
@@ -17,7 +17,7 @@
 <body class="text-center">
   <main class="form-donate">
     <div>
-      <img src="{{ logo }}" class="mb-4" alt="{{ _('%(name)s Logo', name=name) }}" max-width="7em" />
+      <img src="{{ logo }}" class="mb-4" alt="{{ _('%(name)s Logo', name=name) }}" />
 
       <h1 class="h3 mb-3 fw-normal">{{ _('Your payment was canceled') }}</h1>
 

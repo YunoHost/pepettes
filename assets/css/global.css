@@ -16,6 +16,10 @@ body {
   }
 }
 
+img {
+  max-width: 13em
+}
+
 .form-donate {
   width: 100%;
   max-width: 330px;

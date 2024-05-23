@@ -43,6 +43,11 @@ def get_locale():
     return request.accept_languages.best_match(app.config["LANGUAGES"])
 
 
+@app.context_processor
+def utility_processor():
+    return dict(lang=babel.locale_selector_func())
+
+
 @app.route("/", methods=["GET"])
 def get_index():
     return render_template(
