@@ -1,5 +1,7 @@
+gunicorn
 jinja2==3.0
 stripe
+itsdangerous==2.0.1
 flask
 flask-simple-csrf
 flask-babel
