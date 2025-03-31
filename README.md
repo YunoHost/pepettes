@@ -36,6 +36,8 @@ BABEL_TRANSLATION_DIRECTORIES = 'locales'
 # Customization
 CUSTOM = {}
 CUSTOM['name'] = 'YunoHost'
+# You can activate a donation management portal on https://dashboard.stripe.com/settings/billing/portal and display a link to it on the homepage.
+CUSTOM['portal_url'] = ''
 CUSTOM['contact_url'] = 'mailto:donate-6521@yunohost.org'
 CUSTOM['logo'] = 'https://yunohost.org/user/images/logo.png'
 CUSTOM['favicon'] = 'https://yunohost.org/user/themes/yunohost-docs/images/favicon.png'

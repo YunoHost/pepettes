@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-05-22 04:43+0200\n"
+"POT-Creation-Date: 2025-03-31 17:03+0200\n"
 "PO-Revision-Date: 2021-02-18 23:33+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.15.0\n"
+"Generated-By: Babel 2.17.0\n"
 
 #: assets/canceled.html:8 assets/index.html:8 assets/success.html:8
 #, python-format
@@ -66,11 +66,13 @@ msgstr "une fois"
 msgid "Donate"
 msgstr "Donner"
 
-#: assets/index.html:48
-msgid "If you want to cancel a monthly donation, please contact us"
-msgstr ""
-"Si vous souhaitez mettre fin à votre don mensuel, contactez-nous s'il "
-"vous plaît"
+#: assets/index.html:51
+msgid "Manage your monthly donation"
+msgstr "Gérer votre don mensuel"
+
+#: assets/index.html:56
+msgid "Contact us"
+msgstr "Contactez-nous"
 
 #: assets/success.html:22
 msgid "Thanks for your donation 🙂"
