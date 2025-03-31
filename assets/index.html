@@ -45,7 +45,17 @@
         {{ _('Donate') }}
       </button>
 
-      <p><a href="{{ contact_url }}">{{ _('If you want to cancel a monthly donation, please contact us') }}</a></p>
+      <div class="mt-3">
+        {% if portal_url %}
+        <p class="mb-2">
+          <a href="{{ portal_url }}">{{ _('Manage your monthly donation') }}</a>
+        </p>
+        {% endif %}
+  
+        <p>
+          <a href="{{ contact_url }}">{{ _('Contact us') }}</a>
+        </p>
+      </div>
 
       <div id="error-message"></div>
     </div>
