@@ -23,7 +23,6 @@
       <h1 class="h3 mb-3 fw-normal">{{ _('I want to give to %(name)s', name=name) }}</h1>
 
       <div class="input-group mb-3">
-        <input type="hidden" id="csrf" value="{{ csrf }}" />
         <input type="hidden" id="public_key" value="{{ stripe_publishable_key }}" />
 
         <input type="number" min="0" max="9999" class="form-control" id="quantity" value="10"
