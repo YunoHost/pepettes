@@ -16,7 +16,6 @@ from flask import Flask, render_template, jsonify, request, session
 from flask_babel import Babel
 from flask_simple_csrf import CSRF
 
-
 static_dir = str(os.path.abspath(os.path.join(__file__, "..", "assets")))
 app = Flask(
     __name__, static_folder=static_dir, static_url_path="", template_folder=static_dir
