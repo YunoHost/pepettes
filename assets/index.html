@@ -41,7 +41,8 @@
       </div>
 
       <button id="submit" class="w-100 btn btn-lg btn-primary">
-        {{ _('Donate') }}
+	<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+	<span id="donate-text">{{ _('Donate') }}</span><span id="loading-text">{{ _('Anti-bot detection...') }}<br/><span style="font-size:0.6em;">{{ _('Please wait the end of the progress bar') }}</span></span>
       </button>
 
       <div class="mt-3">
